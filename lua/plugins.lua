@@ -27,6 +27,11 @@ return require('packer').startup(function(use)
   use 'altercation/vim-colors-solarized'
   use 'overcache/neosolarized'
 
+	use ({
+		'karb94/neoscroll.nvim',
+		config =function() require('plugins.neoscroll') end
+	})
+
   use ({
     'lewis6991/gitsigns.nvim', 					-- Show git changes on the left
     requires = {'nvim-lua/plenary.nvim'},

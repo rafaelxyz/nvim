@@ -4,8 +4,8 @@ local map = vim.keymap.set
 
 vim.g.mapleader = ' '
 map('n', '§', ':wincmd q<CR>')
-map('n', 'ä', '<C-d>')
-map('n', 'å', '<C-u>')
+map('n', 'ä', '<C-d>', { remap = true })
+map('n', 'å', '<C-u>', { remap = true })
 map('n', 'ö', ':w<CR>')
 map('v', 'ö', '<ESC>')
 map('i', 'ö', '<ESC>')
