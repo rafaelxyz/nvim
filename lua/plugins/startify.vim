@@ -8,9 +8,11 @@ let g:startify_change_to_dir  = 1  " This is the default value
 
 " Add bashrc and nvim config files
 let g:startify_bookmarks = [
-          \ {'b': '~/.bashrc'},
-          \ {'a': '~/.bash_aliases'},
-          \ {'n': '~/.config/nvim/init.lua'}
+          \ {'a': '~/env/config/bashrc'},
+          \ {'s': '~/env/nvim/init.lua'},
+          \ {'d': '~/env/nvim/lua/plugins.lua'},
+          \ {'f': '~/env/nvim/lua/keymaps.lua'},
+          \ {'g': '~/env/nvim/lua/plugins/startify.vim'},
           \ ]
 
 " Change list order
