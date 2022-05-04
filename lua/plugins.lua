@@ -1,17 +1,14 @@
 -- Plugin definition and loading
 
-local fn = vim.fn
-local cmd = vim.cmd
-
 -- Boostrap Packer
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_bootstrap
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone','https://github.com/wbthomason/packer.nvim', install_path})
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  packer_bootstrap = vim.fn.system({'git', 'clone','https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 -- Rerun PackerCompile everytime pluggins.lua is updated
-cmd([[
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
@@ -20,20 +17,17 @@ cmd([[
 
 -- Initialize pluggins
 return require('packer').startup(function(use)
-  -- Let Packer manage itself
-  use('wbthomason/packer.nvim')
-  use 'tpope/vim-commentary'
+  use 'wbthomason/packer.nvim'					-- Manage packer
+  use 'tpope/vim-commentary'						-- gc in visual select to comment out/in code
+  use 'kevinhwang91/rnvimr' 						-- Ranger in vim
+  use 'christoomey/vim-tmux-navigator'  -- Navigation between tmux and vim windows
+  use 'tpope/vim-fugitive' 							-- Git commands
+  use 'ntpeters/vim-better-whitespace'  -- Show extra whitespaces, and :StripWhitespace
   use 'altercation/vim-colors-solarized'
   use 'overcache/neosolarized'
-  use 'kevinhwang91/rnvimr'
 
-  -- Seamless navigation between tmux and vim windows
-  use 'christoomey/vim-tmux-navigator'
-
-  -- Git
-  use 'tpope/vim-fugitive'
   use ({
-    'lewis6991/gitsigns.nvim',
+    'lewis6991/gitsigns.nvim', 					-- Show git changes on the left
     requires = {'nvim-lua/plenary.nvim'},
     config = function() require('plugins.gitsigns') end
   })
@@ -58,7 +52,7 @@ return require('packer').startup(function(use)
   })
 
   use({
-    'akinsho/bufferline.nvim',
+    'akinsho/bufferline.nvim', -- Show buffers as tabs
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require('plugins.bufferline') end,
     event = 'BufWinEnter',
@@ -101,3 +95,5 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
+-- vim: sw=2 ts=2 sts=2

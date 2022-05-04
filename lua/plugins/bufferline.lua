@@ -7,7 +7,7 @@ end
 
 require('bufferline').setup({
   options = {
-    always_show_bufferline = true,
+    always_show_bufferline = false,
     numbers = tabname_format,
     show_buffer_icons = true,
     show_buffer_close_icons = false,
@@ -20,12 +20,12 @@ require('bufferline').setup({
         highlight = 'Directory'
     }},
   },
-   -- custom_areas = {
-   --   right = function()
-   --     local result = {{text = "Buffers", guifg = "#ffffff"}}
-   --     return result
-   --   end,
-   -- },
+   custom_areas = {
+     right = function()
+       local result = {{text = "buffers", guifg = "#ffffff"}}
+       return result
+     end,
+   },
   -- Don't use italic on current buffer
-  -- highlights = {buffer_selected = { gui = "bold" },},
+  highlights = {buffer_selected = { gui = "bold" },},
 })

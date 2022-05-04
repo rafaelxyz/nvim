@@ -29,11 +29,11 @@ require('telescope').setup({
                                          -- the default case_mode is "smart_case"
       },
     },
-  -- pickers = {
-  --   find_files = {
-	-- find_command = {"fdfind"}
-  --   }
-  -- },
+  pickers = {
+    find_files = {
+	find_command = {"fdfind"}
+    }
+  },
 })
 
 require('telescope').load_extension('fzf')
