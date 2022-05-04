@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'  -- Navigation between tmux and vim windows
   use 'tpope/vim-fugitive' 							-- Git commands
   use 'ntpeters/vim-better-whitespace'  -- Show extra whitespaces, and :StripWhitespace
+	use 'caenrique/nvim-toggle-terminal'
   use 'altercation/vim-colors-solarized'
   use 'overcache/neosolarized'
 
