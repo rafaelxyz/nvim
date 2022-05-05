@@ -7,13 +7,14 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   packer_bootstrap = vim.fn.system({'git', 'clone','https://github.com/wbthomason/packer.nvim', install_path})
 end
 
--- Rerun PackerCompile everytime pluggins.lua is updated
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+-- Rerun PackerCompile when saving this file
+vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile',
+																							group = packer_group,
+																							pattern = {'plugins.lua' } })
+-- Source lua config files on save
+vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile>',
+																							group = config_group,
+																							pattern = { 'commands.lua', 'keymaps.lua', 'options.lua' } })
 
 -- Initialize pluggins
 return require('packer').startup(function(use)
