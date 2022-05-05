@@ -15,10 +15,11 @@ map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', {desc = 'Switch buffers'})
 map('n', '<C-s>', ':w<CR>', {desc = 'Save with Ctrl + s'})
 map('i', '<C-SPACE>', '<C-x><C-o>', {desc = 'Run omnifunc, mostly used for autocomplete'})
 map('n', 'Y', 'y$', {desc = 'Yank to end of line'})
-map('n', '<A-a>', ':ToggleWindowTerminal<CR>')
-map('t', '<A-a>', '<c-\\><c-n>', {desc ='Exit terminal mode'})
+map('n', '<C-a>', ':ToggleWindowTerminal<CR>')
+map('t', '<C-a>', '<c-\\><c-n>', {desc ='Exit terminal mode'})
 
 -- Leader
+map('n', '<leader><leader>', ':', {desc = 'Ranger'})
 map('n', '<leader>r', ':RnvimrToggle<CR>', {desc = 'Ranger'})
 map('n', '<leader>t', ':NvimTreeToggle<CR>')
 map('n', '<leader>fg', ':Telescope git_files<CR>')
