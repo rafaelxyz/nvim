@@ -1,18 +1,20 @@
 " Startify
 
 " Don't show [e] and [q] options
-let g:startify_enable_special = 0
+let g:startify_enable_special = 1
 
 " Change directory when opening file using Startify
 let g:startify_change_to_dir  = 1  " This is the default value
 
 " Add bashrc and nvim config files
 let g:startify_bookmarks = [
-          \ {'a': '~/env/config/bashrc'},
-          \ {'s': '~/env/config/init.lua'},
+          \ {'b': '~/env/config/bashrc'},
+          \ {'i': '~/env/config/init.lua'},
           \ {'d': '~/env/nvim/lua/plugins.lua'},
-          \ {'f': '~/env/nvim/lua/keymaps.lua'},
-          \ {'g': '~/env/nvim/lua/plugins/startify.vim'},
+          \ {'k': '~/env/nvim/lua/keymaps.lua'},
+          \ {'o': '~/env/nvim/lua/options.lua'},
+          \ {'s': '~/env/nvim/lua/plugins/startify.vim'},
+          \ {'~': '~/env/'},
           \ ]
 
 " Change list order
@@ -23,3 +25,6 @@ let g:startify_lists = [
           \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
           \ { 'type': 'commands',  'header': ['   Commands']       },
           \ ]
+
+" Make sessions save on quit and SLoad
+let g:startify_session_persistence = 1
