@@ -102,7 +102,8 @@ local mappings = {
 
 	f = {
 		name = "Find",
-		f = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files", },
+		f = { "<cmd>Telescope find_files find_command=rg,--files<cr>", "Find files", },
+		F = { "<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>", "Find files [no-ignore,hidden]", },
 		r = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text (ripgrep)" },
 		G = { "<cmd>Telescope git_files<cr>", "Git files" },
 		g = { "<cmd>Telescope git_files show_untracked=false recurse_submodules=true use_git_root=true<cr>", "Git files + submodules" },
@@ -163,6 +164,7 @@ local mappings = {
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+		h = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Inspect function" },
 		-- " use the same commands to step items for quickfix, location list and diff
 		-- map('n', '<leader>n', ']c \\|:silent! lnext \\| silent! cnext <cr>')
 		-- map('n', '<leader>p', '[c \\|:silent! lprevious \\| silent! cprevious <cr>')

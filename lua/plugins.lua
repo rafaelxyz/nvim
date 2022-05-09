@@ -32,8 +32,9 @@ return require('packer').startup(function(use)
 	use { 'akinsho/toggleterm.nvim', tag = 'v1.*', config = function() require('toggleterm').setup() end }
 	use { 'karb94/neoscroll.nvim', config = function() require('plugins.neoscroll') end }
 	use { 'hoob3rt/lualine.nvim', config = function() require('plugins.lualine') end }
-	use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
+	use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require('plugins.nvim-tree') end }
 	use { 'folke/which-key.nvim', config = function() require('plugins.which-key') end }
+	use { 'mfussenegger/nvim-lint', config = function() require('plugins.lint') end }
 
 	use { 'lewis6991/gitsigns.nvim', -- Show git changes on the left
 		requires = { 'nvim-lua/plenary.nvim' },
@@ -77,7 +78,7 @@ return require('packer').startup(function(use)
 		config = function() require('plugins.telescope') end,
 	}
 
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	-- use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 	use {
 		'mhinz/vim-startify', -- Start screen

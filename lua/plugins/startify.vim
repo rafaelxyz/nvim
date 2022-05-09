@@ -14,6 +14,7 @@ let g:startify_bookmarks = [
           \ {'m': '~/env/nvim/lua/keymaps.lua'},
           \ {'o': '~/env/nvim/lua/options.lua'},
           \ {'s': '~/env/nvim/lua/plugins/startify.vim'},
+          \ {'w': '~/env/nvim/lua/plugins/which-key.lua'},
           \ {'~': '~/env/'},
           \ ]
 
