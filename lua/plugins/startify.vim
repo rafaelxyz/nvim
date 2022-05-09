@@ -10,7 +10,7 @@ let g:startify_change_to_dir  = 1  " This is the default value
 let g:startify_bookmarks = [
           \ {'b': '~/env/config/bashrc'},
           \ {'i': '~/env/config/init.lua'},
-          \ {'d': '~/env/nvim/lua/plugins.lua'},
+          \ {'p': '~/env/nvim/lua/plugins.lua'},
           \ {'m': '~/env/nvim/lua/keymaps.lua'},
           \ {'o': '~/env/nvim/lua/options.lua'},
           \ {'s': '~/env/nvim/lua/plugins/startify.vim'},
