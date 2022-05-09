@@ -1,3 +1,3 @@
 -- Themes
 
-vim.cmd [[colorscheme solarized]]
+vim.cmd [[colorscheme NeoSolarized]]

@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | Packer
 -- Source lua config files on save
 vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile>',
 																							group = config_group,
-																							pattern = { 'commands.lua', 'keymaps.lua', 'options.lua' } })
+																							pattern = { 'commands.lua', 'keymaps.lua', 'options.lua', 'which-key.lua', 'utils.lua' } })
 
 -- Initialize pluggins
 return require('packer').startup(function(use)
@@ -24,29 +24,29 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'  -- Navigation between tmux and vim windows
   use 'tpope/vim-fugitive' 							-- Git commands
   use 'ntpeters/vim-better-whitespace'  -- Show extra whitespaces, and :StripWhitespace
-	use 'caenrique/nvim-toggle-terminal'
+  use "moll/vim-bbye"										-- Bdelete, maintain splits when removing buffer
   use 'altercation/vim-colors-solarized'
   use 'overcache/neosolarized'
 
-	use ({
-		'karb94/neoscroll.nvim',
-		config =function() require('plugins.neoscroll') end
-	})
+  use { 'ahmedkhalf/project.nvim', config = function() require('plugins.project') end }
+	use { 'akinsho/toggleterm.nvim', tag = 'v1.*', config = function() require('toggleterm').setup() end}
+	use { 'karb94/neoscroll.nvim', config = function() require('plugins.neoscroll') end }
+  use { 'hoob3rt/lualine.nvim', config = function() require('plugins.lualine') end }
+  use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
+	use { 'folke/which-key.nvim', config = function() require('plugins.which-key') end }
 
-  use ({
-    'lewis6991/gitsigns.nvim', 					-- Show git changes on the left
+  use { 'lewis6991/gitsigns.nvim', -- Show git changes on the left
     requires = {'nvim-lua/plenary.nvim'},
     config = function() require('plugins.gitsigns') end
-  })
+  }
 
-  -- LSP server
-  use({
-    'neovim/nvim-lspconfig',
-    config = function() require('plugins.lspconfig') end
-  })
-  use 'williamboman/nvim-lsp-installer'  -- Helper for installing most language servers
-  use "L3MON4D3/LuaSnip"  -- Snippet engine
-  use({
+  -- LSP
+  -- use 'williamboman/nvim-lsp-installer'  -- Helper for installing most language servers
+	--require("nvim-lsp-installer").setup {} -- Need to be called before lsp-config setup
+  use { 'neovim/nvim-lspconfig', config = function() require('plugins.lspconfig') end }
+  use "L3MON4D3/LuaSnip"
+  use "jose-elias-alvarez/null-ls.nvim" -- For formatters and linters
+  use {
     "hrsh7th/nvim-cmp",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
@@ -56,51 +56,39 @@ return require('packer').startup(function(use)
       "saadparwaiz1/cmp_luasnip",
     },
     config = function() require('plugins.cmp') end,
-  })
+  }
 
-  use({
+  use {
     'akinsho/bufferline.nvim', -- Show buffers as tabs
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require('plugins.bufferline') end,
     event = 'BufWinEnter',
-  })
+  }
 
-  use({
-    'hoob3rt/lualine.nvim',
-    config = function() require('plugins.lualine') end,
-  })
-
-  use({
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('plugins.nvimtree') end,  -- Must add this manually
-  })
-
-  use({
+  use {
     'nvim-treesitter/nvim-treesitter',
     config = function() require('plugins.treesitter') end,
     run = ':TSUpdate'
-  })
+  }
 
-  use({
+  use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}},
     config = function() require('plugins.telescope') end,
-  })
+  }
 
-  use({'nvim-telescope/telescope-fzf-native.nvim', run ='make'})
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run ='make' }
 
-  use({
-    'mhinz/vim-startify',
+  use {
+    'mhinz/vim-startify',	-- Start screen
     config = function()
       local path = vim.fn.stdpath('config')..'/lua/plugins/startify.vim'
       vim.cmd('source '..path)
     end
-  })
+  }
 
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
--- vim: sw=2 ts=2 sts=2
+-- vim: sw=2 ts=2 sts=2 nowrap

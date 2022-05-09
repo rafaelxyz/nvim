@@ -12,7 +12,8 @@ require('bufferline').setup({
     show_buffer_icons = true,
     show_buffer_close_icons = false,
     show_close_icon = false,
-    -- separator_style = {"", "§"},
+    indicator_icon = "▎",
+    separator_style = {" ", " "},
     -- Don't show bufferline over vertical, unmodifiable buffers
     offsets = {{
         filetype = 'NvimTree',
@@ -26,6 +27,4 @@ require('bufferline').setup({
        return result
      end,
    },
-  -- Don't use italic on current buffer
-  highlights = {buffer_selected = { gui = "bold" },},
 })

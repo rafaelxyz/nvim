@@ -11,7 +11,7 @@ let g:startify_bookmarks = [
           \ {'b': '~/env/config/bashrc'},
           \ {'i': '~/env/config/init.lua'},
           \ {'d': '~/env/nvim/lua/plugins.lua'},
-          \ {'k': '~/env/nvim/lua/keymaps.lua'},
+          \ {'m': '~/env/nvim/lua/keymaps.lua'},
           \ {'o': '~/env/nvim/lua/options.lua'},
           \ {'s': '~/env/nvim/lua/plugins/startify.vim'},
           \ {'~': '~/env/'},
@@ -27,4 +27,4 @@ let g:startify_lists = [
           \ ]
 
 " Make sessions save on quit and SLoad
-let g:startify_session_persistence = 1
+let g:startify_session_persistence = 0

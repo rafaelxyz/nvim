@@ -20,15 +20,15 @@ function M.common_on_attach(client, bufnr)
 
   -- Keymaps: we need to define keymaps for each of the LSP functionalities manually
   -- Go to definition and declaration (use leader to presever standard use of 'gd')
-  bufnnoremap("<leader>gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-  bufnnoremap("<leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
+  -- bufnnoremap("<leader>gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+  -- bufnnoremap("<leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 
   -- Go to implementation
-  bufnnoremap("<leader>gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>")
+  -- bufnnoremap("<leader>gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>")
 
   -- List symbol uses
   -- bufnnoremap("<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>")  -- Uses quickfix
-  bufnnoremap("<leader>gr", "<cmd>Telescope lsp_references<CR>")  -- Uses Telescope
+  -- bufnnoremap("<leader>gr", "<cmd>Telescope lsp_references<CR>")  -- Uses Telescope
 
   -- Inspect function
   bufnnoremap("K", "<Cmd>lua vim.lsp.buf.hover()<CR>")
@@ -49,3 +49,4 @@ function M.common_on_attach(client, bufnr)
 end
 
 return M
+-- vim: nowrap
