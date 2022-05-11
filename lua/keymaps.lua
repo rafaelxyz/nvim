@@ -3,6 +3,7 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = ' '
+map('n', '<leader><leader>', ':')
 map('n', '§', ':wincmd q<CR>')
 map('n', 'ä', '<C-d>', { remap = true })
 map('n', 'å', '<C-u>', { remap = true })
@@ -15,9 +16,9 @@ map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { desc = 'Switch buffers' })
 map('n', '<C-s>', ':w<CR>', { desc = 'Save with Ctrl + s' })
 map('i', '<C-SPACE>', '<C-x><C-o>', { desc = 'Run omnifunc, mostly used for autocomplete' })
 map('n', 'Y', 'y$', { desc = 'Yank to end of line' })
--- map('n', '<C-a>', ':ToggleTerm<CR>')
 map('t', '<C-a>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })
+map('n', '<C-a>', ':ToggleTerm direction=horizontal<CR>', { desc = 'Exit terminal mode' })
+map('n', '<C-o>', ':ClangdSwitchSourceHeader<CR>', { desc = 'Switch header/source'})
 
--- Leader --
-------------
-map('n', '<leader><leader>', ':')
+-- Ctrl-c in visual mode
+vim.api.nvim_set_keymap("v", "<c-c>", '"*y :let @+=@*<CR>', {noremap=true, silent=true})

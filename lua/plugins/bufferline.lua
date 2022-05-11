@@ -7,9 +7,9 @@ end
 
 require('bufferline').setup({
   options = {
-    always_show_bufferline = false,
-    numbers = tabname_format,
-    show_buffer_icons = true,
+    -- always_show_bufferline = false,
+    -- numbers = tabname_format,
+    show_buffer_icons = false,
     show_buffer_close_icons = false,
     show_close_icon = false,
     indicator_icon = "▎",

@@ -1,4 +1,4 @@
--- Define commands
+-- Commands
 
 -- Swap folder
 vim.cmd('command! ListSwap split | enew | r !ls -l ~/.local/share/nvim/swap')
