@@ -5,7 +5,7 @@ Reference
 
 # Notes
 
-text object copy paste, repeat with .
+Text object copy paste, repeat with .
 
 	yiw
 	ciw<C-r>0

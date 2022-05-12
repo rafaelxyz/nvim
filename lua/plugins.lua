@@ -32,11 +32,18 @@ return require('packer').startup(function(use)
   use "moll/vim-bbye" -- Bdelete, maintain splits when removing buffer
   use 'altercation/vim-colors-solarized'
   use 'overcache/neosolarized'
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
 
-  require'lspconfig'.pyright.setup{}
-  require'lspconfig'.clangd.setup{}
-  require'lspconfig'.bashls.setup{}
+  -- Collection of configurations for the built-in LSP client
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require'lspconfig'.pyright.setup{}
+      require'lspconfig'.clangd.setup{}
+      require'lspconfig'.bashls.setup{}
+      require'lspconfig'.vimls.setup{}
+      require'lspconfig'.dockerls.setup{}
+    end,
+  }
 
   use {
     'nvim-lualine/lualine.nvim',

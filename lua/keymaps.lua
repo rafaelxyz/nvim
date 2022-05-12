@@ -18,7 +18,6 @@ map('i', '<C-SPACE>', '<C-x><C-o>', { desc = 'Run omnifunc, mostly used for auto
 map('n', 'Y', 'y$', { desc = 'Yank to end of line' })
 map('t', '<C-a>', '<c-\\><c-n>', { desc = 'Exit terminal mode' })
 map('n', '<C-a>', ':ToggleTerm direction=horizontal<CR>', { desc = 'Exit terminal mode' })
-map('n', '<C-o>', ':ClangdSwitchSourceHeader<CR>', { desc = 'Switch header/source'})
 
 -- Ctrl-c in visual mode
 vim.api.nvim_set_keymap("v", "<c-c>", '"*y :let @+=@*<CR>', {noremap=true, silent=true})
