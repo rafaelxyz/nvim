@@ -22,16 +22,17 @@ local vopts = {
 }
 
 local mappings = {
+  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["e"] = { "<cmd>:NvimTreeToggle<CR>", "NvimTree" },
   ["r"] = { "<cmd>:RnvimrToggle<CR>", "Ranger" },
+  ["o"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch header/source" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["n"] = { "<cmd>No<cr>", "Clear left sidebar" },
   ["v"] = { "<cmd>vert diffsplit |bp|windo diffthis<cr>", 'Diff current and next buffer', },
   ["p"] = { '"+p', "Paste from system clippboard" },
   ["R"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
 
   f = {
     name = "Find",
