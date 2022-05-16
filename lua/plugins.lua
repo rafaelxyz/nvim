@@ -24,8 +24,8 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- Initialize pluggins
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Manage packer
+  use 'kevinhwang91/rnvimr' -- Ranger
   use 'tpope/vim-commentary' -- gc in visual select to comment out/in code
-  use 'kevinhwang91/rnvimr' -- Ranger in vim
   use 'christoomey/vim-tmux-navigator' -- Navigation between tmux and vim windows
   use 'tpope/vim-fugitive' -- Git commands
   use 'ntpeters/vim-better-whitespace' -- Show extra whitespaces, and :StripWhitespace
@@ -56,15 +56,17 @@ return require('packer').startup(function(use)
     config = function() require('gitsigns').setup() end
   }
 
+  -- Plugins with custom configs
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
+    config = function() require('plugins.nvim-tree') end,
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  -- Plugins with custom configs
   use {
     'akinsho/toggleterm.nvim', tag = 'v1.*',
     config = function() require('plugins.toggleterm') end,

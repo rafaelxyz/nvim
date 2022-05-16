@@ -1,4 +1,4 @@
 require 'nvim-tree'.setup {
   -- disable_netrw = true,
-  -- hijack_netrw = false,
+  hijack_netrw = false,
 }

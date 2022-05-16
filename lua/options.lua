@@ -15,3 +15,7 @@ vim.opt.softtabstop=2
 vim.opt.shiftwidth=2
 vim.opt.autoindent = true
 vim.opt.expandtab = true
+
+-- Ranger
+vim.g.rnvimr_enable_ex = true
+vim.g.rnvimr_enable_picker = true
