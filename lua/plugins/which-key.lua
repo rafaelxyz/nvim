@@ -33,6 +33,7 @@ local mappings = {
   ["p"] = { '"+p', "Paste from system clippboard" },
   ["R"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["i"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Inspect function" },
 
   f = {
     name = "Find",
