@@ -39,7 +39,7 @@ local mappings = {
     name = "Find",
     f = { "<cmd>Telescope find_files find_command=rg,--files<cr>", "Find files", },
     F = { "<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>", "Find files [no-ignore,hidden]", },
-    r = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text (ripgrep)" },
+    r = { "<cmd>Telescope live_grep<cr>", "Find Text (ripgrep)" },
     G = { "<cmd>Telescope git_files<cr>", "Git files" },
     g = { "<cmd>Telescope git_files show_untracked=false recurse_submodules=true use_git_root=true<cr>", "Git files + submodules" },
     b = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers", },
