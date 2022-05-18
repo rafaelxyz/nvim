@@ -35,8 +35,7 @@ return require('packer').startup(function(use)
 
   -- Collection of configurations for the built-in LSP client
   use {
-    'neovim/nvim-lspconfig',
-    config = function()
+    'neovim/nvim-lspconfig', config = function()
       require'lspconfig'.pyright.setup{}
       require'lspconfig'.clangd.setup{}
       require'lspconfig'.bashls.setup{}
@@ -46,68 +45,73 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-lualine/lualine.nvim',
+    'nvim-lualine/lualine.nvim', config = function()
+      require('lualine').setup() end,
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('lualine').setup() end
   }
 
-  use { 'lewis6991/gitsigns.nvim', -- Left side git status
+  use {
+    'lewis6991/gitsigns.nvim', config = function()
+      require('gitsigns').setup() end,
     requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
+  }
+
+  use {'nvim-orgmode/orgmode', config = function()
+    require('orgmode').setup{} end
   }
 
   -- Plugins with custom configs
 
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require('plugins.nvim-tree') end,
+    'kyazdani42/nvim-tree.lua', config = function()
+      require('plugins.nvim-tree') end,
+    requires = { 'kyazdani42/nvim-web-devicons' },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
   use {
-    'akinsho/toggleterm.nvim', tag = 'v1.*',
-    config = function() require('plugins.toggleterm') end,
-  }
-
-  use { 'ahmedkhalf/project.nvim',
-    config = function() require('plugins.project_nvim') end
+    'akinsho/toggleterm.nvim', config = function()
+      require('plugins.toggleterm') end,
+     tag = 'v1.*',
   }
 
   use {
-    'karb94/neoscroll.nvim',
-    config = function() require('plugins.neoscroll') end
+    'ahmedkhalf/project.nvim', config = function()
+      require('plugins.project_nvim') end
   }
 
   use {
-    'folke/which-key.nvim',
-    config = function() require('plugins.which-key') end
+    'karb94/neoscroll.nvim', config = function()
+      require('plugins.neoscroll') end
   }
 
   use {
-    'akinsho/bufferline.nvim', -- Show buffers as tabs
+    'folke/which-key.nvim', config = function()
+      require('plugins.which-key') end
+  }
+
+  use {
+    'akinsho/bufferline.nvim', config = function()
+      require('plugins.bufferline') end,
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('plugins.bufferline') end,
     event = 'BufWinEnter',
   }
 
   use {
-    'nvim-treesitter/nvim-treesitter',
-    config = function() require('plugins.treesitter') end,
+    'nvim-treesitter/nvim-treesitter', config = function()
+      require('plugins.treesitter') end,
+    require('orgmode').setup_ts_grammar(),
     run = ':TSUpdate'
   }
 
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
-    config = function() require('plugins.telescope') end,
+    'nvim-telescope/telescope.nvim', config = function()
+      require('plugins.telescope') end,
+    requires = { 'nvim-lua/plenary.nvim' },
   }
 
   use {
-    'mhinz/vim-startify', -- Start screen
-    config = function()
+    'mhinz/vim-startify', config = function()
       local path = vim.fn.stdpath('config') .. '/lua/plugins/startify.vim'
       vim.cmd('source ' .. path)
     end
