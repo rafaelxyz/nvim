@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary' -- gc in visual select to comment out/in code
   use 'christoomey/vim-tmux-navigator' -- Navigation between tmux and vim windows
   use 'tpope/vim-fugitive' -- Git commands
-  use 'ntpeters/vim-better-whitespace' -- Show extra whitespaces, and :StripWhitespace
+  use 'axelf4/vim-strip-trailing-whitespace' -- :StripTrailingWhitespace for whole file
   use "moll/vim-bbye" -- Bdelete, maintain splits when removing buffer
   use 'altercation/vim-colors-solarized'
   use 'overcache/neosolarized'
