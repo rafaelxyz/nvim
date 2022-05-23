@@ -27,7 +27,6 @@ local mappings = {
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["i"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Inspect function" },
   ["n"] = { "<cmd>No<cr>", "Clear left sidebar" },
-  ["o"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch header/source" },
   ["p"] = { '"+p', "Paste from system clippboard" },
   ["r"] = { "<cmd>:RnvimrToggle<CR>", "Ranger" },
   ["R"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
@@ -43,16 +42,6 @@ local mappings = {
     G = { "<cmd>Telescope git_files<cr>", "Git files" },
     g = { "<cmd>Telescope git_files show_untracked=false recurse_submodules=true use_git_root=true<cr>", "Git files + submodules" },
     b = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers", },
-  },
-
-  P = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    C = { "<cmd>PackerClean<cr>", "Clean" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
 
   g = {
@@ -76,6 +65,11 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+  },
+
+  o = {
+    name = "Org",
+    o = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch header/source" },
   },
 
   l = {
@@ -102,17 +96,6 @@ local mappings = {
     -- " use the same commands to step items for quickfix, location list and diff
     -- map('n', '<leader>n', ']c \\|:silent! lnext \\| silent! cnext <cr>')
     -- map('n', '<leader>p', '[c \\|:silent! lprevious \\| silent! cprevious <cr>')
-    -- diagnostic
-  },
-
-  u = {
-    name = "Substitute",
-    l = { ":s//g<Left><Left>", "Line" },
-    F = { ":%s//g<Left><Left>", "File, no confirm" },
-    f = { ":%s//gc<Left><Left><Left>", "File, confirm" },
-    -- map('v', '<leader>s', ':s//g<Left><Left>', { desc = 'Populate substitution' })
-    -- map('v', '<leader><A-s>', ':%s//g<Left><Left>', { desc = 'Populate substitution' })
-    -- map('v', '<leader>S', ':%s//gc<Left><Left><Left>', { desc = 'Populate substitution' })
   },
 
   s = {
@@ -132,6 +115,26 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+
+  P = {
+    name = "Packer",
+    c = { "<cmd>PackerCompile<cr>", "Compile" },
+    C = { "<cmd>PackerClean<cr>", "Clean" },
+    i = { "<cmd>PackerInstall<cr>", "Install" },
+    s = { "<cmd>PackerSync<cr>", "Sync" },
+    S = { "<cmd>PackerStatus<cr>", "Status" },
+    u = { "<cmd>PackerUpdate<cr>", "Update" },
+  },
+
+  u = {
+    name = "Substitute",
+    l = { ":s//g<Left><Left>", "Line" },
+    F = { ":%s//g<Left><Left>", "File, no confirm" },
+    f = { ":%s//gc<Left><Left><Left>", "File, confirm" },
+    -- map('v', '<leader>s', ':s//g<Left><Left>', { desc = 'Populate substitution' })
+    -- map('v', '<leader><A-s>', ':%s//g<Left><Left>', { desc = 'Populate substitution' })
+    -- map('v', '<leader>S', ':%s//gc<Left><Left><Left>', { desc = 'Populate substitution' })
   },
 }
 
