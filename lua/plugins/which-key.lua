@@ -99,7 +99,7 @@ local mappings = {
   },
 
   s = {
-    name = "Search",
+    name = "TeleScope",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
